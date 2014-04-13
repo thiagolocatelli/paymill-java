@@ -1,0 +1,18 @@
+{
+    "data" : [
+        {
+            "id" : "refund_87bc404a95d5ce616049",
+            "amount" : "042",
+            "status" : "refunded",
+            "description" : null,
+            "livemode" : false,
+            "created_at" : 1349947042,
+            "updated_at" : 1349947042,
+            "response_code" : 20000,
+            "transaction" : null,
+            "app_id" : null
+        }
+    ],
+    "data_count" : "1",
+    "mode" : "test"
+}

@@ -1,0 +1,19 @@
+{
+    "data" : [
+        {
+            "id" : "preauth_31eb90495837447f76b7",
+            "description" : null,
+            "amount" : "4200",
+            "currency" : "EUR",
+            "status" : "closed",
+            "livemode" : false,
+            "created_at" : 1349948920,
+            "updated_at" : 1349948920,
+            "payment" : null,
+            "client" : null,
+            "app_id" : null
+        }
+    ],
+    "data_count" : "1",
+    "mode" : "test"
+}

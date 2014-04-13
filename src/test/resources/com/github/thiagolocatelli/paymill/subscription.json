@@ -1,0 +1,18 @@
+{
+    "data" : {
+        "id":"sub_dc180b755d10da324864",
+        "offer" : null,
+        "livemode" : false,
+        "cancel_at_period_end" : false,
+        "trial_start": null,
+        "trial_end": null,
+        "next_capture_at": 1369563095,
+        "created_at" : 1341935490,
+        "updated_at" : 1341935490,
+        "canceled_at" : null,
+        "payment": null,
+        "client" : null,
+        "app_id" : null
+    },
+    "mode" : "test"
+}

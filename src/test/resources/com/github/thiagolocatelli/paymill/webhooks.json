@@ -1,0 +1,32 @@
+{
+    "data" : [
+        {
+            "id":"hook_40237e20a7d5a231d99b",
+            "url":"<your-webhook-url>",
+            "livemode":false,
+            "event_types":[
+                "transaction.succeeded",
+                "transaction.failed"
+            ],
+            "created_at":1358982000,
+            "updated_at":1358982000,
+            "active" : true,
+            "app_id" : null
+        },
+        {
+            "id":"hook_40237e20a7d5skt6d99b",
+            "email":"<your-webhook-email>",
+            "livemode":false,
+            "event_types":[
+                "subscription.succeeded",
+                "subscription.failed"
+            ],
+            "created_at":1358911000,
+            "updated_at":1358913000,
+            "active" : true,
+            "app_id" : null
+        }
+    ],
+    "data_count" : "2",
+    "mode" : "test"
+}

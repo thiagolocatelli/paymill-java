@@ -1,0 +1,24 @@
+{
+    "data" : {
+        "id" : "tran_023d3b5769321c649435",
+        "amount" : "4200",
+        "origin_amount" : 4200,
+        "status" : "closed",
+        "description" : null,
+        "livemode" : false,
+        "refunds" : null,
+        "currency" : "EUR",
+        "created_at" : 1349946151,
+        "updated_at" : 1349946151,
+        "response_code" : 20000,
+        "short_id" : "0000.1212.3434",
+        "is_fraud" : false,
+        "invoices": [],
+        "payment" : null,
+        "client" : null,
+        "preauthorization" : null,
+        "fees" : [],
+        "app_id" : null
+    },
+    "mode" : "test"
+}

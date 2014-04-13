@@ -1,0 +1,18 @@
+{
+    "data": {
+        "id" : "offer_40237e20a7d5a231d99b",
+        "name" : "Nerd Special",
+        "amount" : 4200,
+        "currency": "EUR",
+        "interval" : "1 WEEK",
+        "trial_period_days" : 0,
+        "created_at" : 1341935129,
+        "updated_at" : 1341935129,
+        "subscription_count": {
+            "active": 3,
+            "inactive": 0
+        },
+        "app_id": null
+    },
+    "mode" : "test"
+}

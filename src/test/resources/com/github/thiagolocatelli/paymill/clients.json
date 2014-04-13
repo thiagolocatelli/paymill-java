@@ -1,0 +1,16 @@
+{
+    "data" : [
+        {
+            "id"           : "client_bc798246e32ce7e66dbe",
+            "email"        : null,
+            "description"  : null,
+            "created_at"   : 1342427064,
+            "updated_at"   : 1342427064,
+            "payment"      : null,
+            "subscription" : null,
+            "app_id"       : null
+        }
+    ],
+    "data_count" : "1",
+    "mode" : "test"
+}
