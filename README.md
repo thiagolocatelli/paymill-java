@@ -30,7 +30,7 @@ Usage
 PaymillExample.java
 
 ```JAVA    
-public class PinPaymentsExample {
+public class PaymillExample {
 
     public static void main(String[] args) {
         Paymill.apiKey = "YOUR-SECRET-KEY";
