@@ -37,8 +37,8 @@ public class PinPaymentsExample {
         Map<String, Object> chargeMap = new HashMap<String, Object>();
         chargeMap.put("amount", 100);
         chargeMap.put("currency", "AUD");
-        chargeMap.put("email", "thiago.locatelli@gmail.com");
-        chargeMap.put("description", "Pin Payments Java Bindings tests");
+        chargeMap.put("email", "your-email@gmail.com");
+        chargeMap.put("description", "Paymill Java Bindings tests");
         chargeMap.put("ip_address", "127.0.0.1");
         Map<String, Object> cardMap = new HashMap<String, Object>();
         cardMap.put("expiry_month", 12);
