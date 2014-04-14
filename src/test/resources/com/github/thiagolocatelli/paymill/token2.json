@@ -1,0 +1,41 @@
+{
+   "transaction":{
+      "mode":"CONNECTOR_TEST",
+      "channel":"01417159439a5f194a1b0a1fe04a1849",
+      "response":"SYNC",
+      "payment":{
+         "code":"CC.DB"
+      },
+      "processing":{
+         "code":"CC.DB.90.00",
+         "reason":{
+            "code":"00",
+            "message":"Successful Processing"
+         },
+         "result":"ACK",
+         "return":{
+            "code":"000.100.112",
+            "message":"Request successfully processed in 'Merchant in Connector Test Mode'"
+         },
+         "timestamp":"2014-04-14 01:47:10"
+      },
+      "identification":{
+         "shortId":"1263.1812.1715",
+         "uniqueId":"tok_d2e86bad71fcb1ef4084"
+      },
+      "account":{
+         "bin":"411111",
+         "brand":"VISA",
+         "last4Digits":"1111"
+      },
+      "customer":{
+         "address":{
+            "country":"DE"
+         },
+         "contact":{
+            "ip":"68.196.133.167",
+            "ipCountry":""
+         }
+      }
+   }
+}
