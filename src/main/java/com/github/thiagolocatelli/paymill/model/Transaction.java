@@ -1,5 +1,6 @@
 package com.github.thiagolocatelli.paymill.model;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -23,8 +24,8 @@ public class Transaction extends APIResource {
 	Boolean isFraud;
 	List<Refund> refunds;
 	String currency;
-	Integer createdAt;
-	Integer updatedAt;
+	Date createdAt;
+	Date updatedAt;
 	Integer responseCode;
 	String shortId;
 	List<Invoice> invoices;
@@ -106,19 +107,19 @@ public class Transaction extends APIResource {
 		this.currency = currency;
 	}
 
-	public Integer getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Integer createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public Integer getUpdatedAt() {
+	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(Integer updatedAt) {
+	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 

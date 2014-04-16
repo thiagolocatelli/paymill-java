@@ -1,5 +1,6 @@
 package com.github.thiagolocatelli.paymill.model;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,8 +19,8 @@ public class Webhook extends APIResource {
 	String url;
 	String email;
 	List<String> eventTypes;
-	Integer createdAt;
-	Integer updatedAt;
+	Date createdAt;
+	Date updatedAt;
 	Boolean active;
 	Boolean livemode;
 	String appId;
@@ -56,19 +57,19 @@ public class Webhook extends APIResource {
 		this.eventTypes = eventTypes;
 	}
 
-	public Integer getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Integer createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public Integer getUpdatedAt() {
+	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(Integer updatedAt) {
+	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 

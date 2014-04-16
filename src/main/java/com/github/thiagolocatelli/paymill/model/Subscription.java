@@ -1,5 +1,6 @@
 package com.github.thiagolocatelli.paymill.model;
 
+import java.util.Date;
 import java.util.Map;
 
 import com.github.thiagolocatelli.paymill.exception.APIConnectionException;
@@ -20,9 +21,9 @@ public class Subscription extends APIResource {
 	Integer trialStart;
 	Integer trialEnd;
 	Integer nextCaptureAt;
-	Integer createdAt;
-	Integer updatedAt;
-	Integer canceledAt;
+	Date createdAt;
+	Date updatedAt;
+	Date canceledAt;
 	Payment payment;
 	Client client;
 	String appId;
@@ -83,27 +84,27 @@ public class Subscription extends APIResource {
 		this.nextCaptureAt = nextCaptureAt;
 	}
 
-	public Integer getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Integer createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public Integer getUpdatedAt() {
+	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(Integer updatedAt) {
+	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
-	public Integer getCanceledAt() {
+	public Date getCanceledAt() {
 		return canceledAt;
 	}
 
-	public void setCanceledAt(Integer canceledAt) {
+	public void setCanceledAt(Date canceledAt) {
 		this.canceledAt = canceledAt;
 	}
 

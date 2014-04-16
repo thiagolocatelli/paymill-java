@@ -14,7 +14,7 @@ public class DateDeserializer implements JsonDeserializer<Date> {
 			JsonDeserializationContext arg2) throws JsonParseException {
 
 		try {
-			Integer date = element.getAsInt();
+			Long date = element.getAsLong();
 			return new Date(date * 1000);
 		} catch (Exception e) {
 			throw new JsonParseException(e);

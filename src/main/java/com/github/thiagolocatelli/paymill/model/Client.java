@@ -1,5 +1,6 @@
 package com.github.thiagolocatelli.paymill.model;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -17,8 +18,8 @@ public class Client extends APIResource {
 	String id;
 	String email;
 	String description;
-	Integer createdAt;
-	Integer updatedAt;
+	Date createdAt;
+	Date updatedAt;
 	List<Payment> payment;
 	List<Subscription> subscription;
 	String appId;
@@ -47,19 +48,19 @@ public class Client extends APIResource {
 		this.description = description;
 	}
 
-	public Integer getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Integer createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public Integer getUpdatedAt() {
+	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(Integer updatedAt) {
+	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 

@@ -110,7 +110,8 @@ public abstract class APIResource extends APIObject {
 		}
 
 		if(!"-1".equals(apiKey)) {
-			String encodedKey = new String(BASE64EncoderStream.encode(apiKey.getBytes()));
+			String basicAuth = apiKey + ":paymill";
+			String encodedKey = new String(BASE64EncoderStream.encode(basicAuth.getBytes()));
 			headers.put("Authorization", String.format("Basic %s", encodedKey));
 		}
 		
@@ -122,9 +123,9 @@ public abstract class APIResource extends APIObject {
 		for (String propertyName : propertyNames) {
 			propertyMap.put(propertyName, System.getProperty(propertyName));
 		}
-		propertyMap.put("bindings.version", Paymill.VERSION);
+		propertyMap.put("Bindings.version", Paymill.VERSION);
 		propertyMap.put("lang", "Java");
-		propertyMap.put("publisher", "PinPayments");
+		propertyMap.put("publisher", "Paymill");
 		headers.put("X-Paymill-Client-User-Agent", GSON.toJson(propertyMap));
 		if (Paymill.apiVersion != null) {
 			headers.put("Paymill-Version", Paymill.apiVersion);
@@ -133,7 +134,7 @@ public abstract class APIResource extends APIObject {
 	}
 
 	@SuppressWarnings("unchecked")
-	private static javax.net.ssl.HttpsURLConnection createPinPaymentConnection(
+	private static javax.net.ssl.HttpsURLConnection createPaymillConnection(
 			String url, String apiKey) throws IOException {
 		URL paymillURL = null;
 		String customURLStreamHandlerClassName = System.getProperty(
@@ -209,7 +210,7 @@ public abstract class APIResource extends APIObject {
 	private static javax.net.ssl.HttpsURLConnection createGetConnection(
 			String url, String query, String apiKey) throws IOException, APIConnectionException {
 		String getURL = String.format("%s?%s", url, query);
-		javax.net.ssl.HttpsURLConnection conn = createPinPaymentConnection(getURL,
+		javax.net.ssl.HttpsURLConnection conn = createPaymillConnection(getURL,
 				apiKey);
 		conn.setRequestMethod("GET");
 
@@ -220,7 +221,7 @@ public abstract class APIResource extends APIObject {
 
 	private static javax.net.ssl.HttpsURLConnection createPostConnection(
 			String url, String query, String apiKey) throws IOException, APIConnectionException {
-		javax.net.ssl.HttpsURLConnection conn = createPinPaymentConnection(url,
+		javax.net.ssl.HttpsURLConnection conn = createPaymillConnection(url,
 				apiKey);
 
 		conn.setDoOutput(true);
@@ -241,11 +242,35 @@ public abstract class APIResource extends APIObject {
 		}
 		return conn;
 	}
+	
+	private static javax.net.ssl.HttpsURLConnection createPutConnection(
+			String url, String query, String apiKey) throws IOException, APIConnectionException {
+		javax.net.ssl.HttpsURLConnection conn = createPaymillConnection(url,
+				apiKey);
+
+		conn.setDoOutput(true);
+		conn.setRequestMethod("PUT");
+		conn.setRequestProperty("Content-Type", String.format(
+				"application/x-www-form-urlencoded;charset=%s", CHARSET));
+
+		checkSSLCert(conn);
+
+		OutputStream output = null;
+		try {
+			output = conn.getOutputStream();
+			output.write(query.getBytes(CHARSET));
+		} finally {
+			if (output != null) {
+				output.close();
+			}
+		}
+		return conn;
+	}
 
 	private static javax.net.ssl.HttpsURLConnection createDeleteConnection(
 			String url, String query, String apiKey) throws IOException, APIConnectionException {
 		String deleteUrl = String.format("%s?%s", url, query);
-		javax.net.ssl.HttpsURLConnection conn = createPinPaymentConnection(
+		javax.net.ssl.HttpsURLConnection conn = createPaymillConnection(
 				deleteUrl, apiKey);
 		conn.setRequestMethod("DELETE");
 
@@ -277,7 +302,14 @@ public abstract class APIResource extends APIObject {
 		for (Map.Entry<String, Object> entry : params.entrySet()) {
 			String key = entry.getKey();
 			Object value = entry.getValue();
-			if (value instanceof Map<?, ?>) {
+			if(value instanceof List<?>) {
+				List<?> list = (List<?>) value;
+				int index=0;
+				for(Object o : list) {
+					flatParams.put(String.format("%s[%s]", key, index++), o.toString());
+				}
+			}
+			else if (value instanceof Map<?, ?>) {
 				Map<String, Object> flatNestedMap = new HashMap<String, Object>();
 				Map<?, ?> nestedMap = (Map<?, ?>) value;
 				for (Map.Entry<?, ?> nestedEntry : nestedMap.entrySet()) {
@@ -335,13 +367,16 @@ public abstract class APIResource extends APIObject {
 			case POST:
 				conn = createPostConnection(url, query, apiKey);
 				break;
+			case PUT:
+				conn = createPutConnection(url, query, apiKey);
+				break;
 			case DELETE:
 				conn = createDeleteConnection(url, query, apiKey);
 				break;
 			default:
 				throw new APIConnectionException("invalid_http_method",
 						String.format("Unrecognized HTTP method %s. "
-										+ "This indicates a bug in the PinPayments bindings.",
+										+ "This indicates a bug in the Paymill bindings.",
 								method));
 			}
                         // trigger the request

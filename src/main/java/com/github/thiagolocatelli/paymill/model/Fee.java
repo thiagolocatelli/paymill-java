@@ -1,5 +1,7 @@
 package com.github.thiagolocatelli.paymill.model;
 
+import java.util.Date;
+
 public class Fee {
 
 	String type;
@@ -7,7 +9,7 @@ public class Fee {
 	String payment;
 	Integer amount;
 	String currency;
-	Integer billedAt;
+	Date billedAt;
 
 	public String getType() {
 		return type;
@@ -49,11 +51,11 @@ public class Fee {
 		this.currency = currency;
 	}
 
-	public Integer getBilledAt() {
+	public Date getBilledAt() {
 		return billedAt;
 	}
 
-	public void setBilledAt(Integer billedAt) {
+	public void setBilledAt(Date billedAt) {
 		this.billedAt = billedAt;
 	}
 

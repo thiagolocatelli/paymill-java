@@ -8,6 +8,7 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
+import com.github.thiagolocatelli.paymill.bridge.TokenRequest;
 import com.github.thiagolocatelli.paymill.model.Client;
 import com.github.thiagolocatelli.paymill.model.ClientCollection;
 import com.github.thiagolocatelli.paymill.model.Offer;
@@ -151,7 +152,14 @@ public class ModelDeserializerTest {
 		String json = resource("webhooks.json");
 		WebhookCollection webhookCollection = gson.fromJson(json, WebhookCollection.class);
 		assertEquals(webhookCollection.getDataCount(), new Integer(2));
-	}	
+	}
+
+	@Test
+	public void deserializeToken() throws IOException {
+		String json = resource("token.json");
+		TokenRequest token = gson.fromJson(json, TokenRequest.class);
+		assertEquals(token.getTransaction().getIdentification().getUniqueId(), "tok_3b6bce6d21ed67dc85c7");
+	}		
 
 	private String resource(String path) throws IOException {
 		InputStream resource = getClass().getResourceAsStream(path);

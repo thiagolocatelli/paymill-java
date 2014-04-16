@@ -1,5 +1,6 @@
 package com.github.thiagolocatelli.paymill.model;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import com.github.thiagolocatelli.paymill.exception.APIConnectionException;
@@ -24,8 +25,8 @@ public class Payment extends APIResource {
 	String expireYear;
 	String cardHolder;
 	String last4;
-	Integer createdAt;
-	Integer updatedAt;
+	Date createdAt;
+	Date updatedAt;
 	String appId;
 
 	public String getId() {
@@ -100,19 +101,19 @@ public class Payment extends APIResource {
 		this.last4 = last4;
 	}
 
-	public Integer getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Integer createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public Integer getUpdatedAt() {
+	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(Integer updatedAt) {
+	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
