@@ -12,6 +12,7 @@ import com.github.thiagolocatelli.paymill.exception.PreConditionFailedException;
 import com.github.thiagolocatelli.paymill.exception.ResourceNotFoundException;
 import com.github.thiagolocatelli.paymill.exception.TransactionErrorException;
 import com.github.thiagolocatelli.paymill.net.APIResource;
+import com.github.thiagolocatelli.paymill.net.VoidResponse;
 
 public class Webhook extends APIResource {
 
@@ -142,20 +143,20 @@ public class Webhook extends APIResource {
 				params, Webhook.class, apiKey);
 	}
 
-	public Webhook delete(String apiKey) throws AuthenticationException,
+	public void delete(String apiKey) throws AuthenticationException,
 			InvalidRequestException, APIConnectionException, APIException,
 			TransactionErrorException, PreConditionFailedException,
 			ResourceNotFoundException {
-		return request(RequestMethod.DELETE,
-				instanceURL(Webhook.class, getId()), null, Webhook.class,
+		request(RequestMethod.DELETE,
+				instanceURL(Webhook.class, getId()), null, VoidResponse.class,
 				apiKey);
 	}
 
-	public Webhook delete() throws AuthenticationException,
+	public void delete() throws AuthenticationException,
 			InvalidRequestException, APIConnectionException, APIException,
 			TransactionErrorException, PreConditionFailedException,
 			ResourceNotFoundException {
-		return delete(null);
+		delete(null);
 	}
 
 	public static WebhookCollection list() throws AuthenticationException,

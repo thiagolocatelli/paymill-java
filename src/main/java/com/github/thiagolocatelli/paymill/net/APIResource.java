@@ -494,6 +494,10 @@ public abstract class APIResource extends APIObject {
 			return GSON.fromJson(rBody, clazz);
 		}
 		else {
+			VoidResponse x = new VoidResponse();
+			if(clazz.isInstance(x)) {
+				return null;
+			}
 			PaymillResponse resp = GSON.fromJson(rBody, PaymillResponse.class);
 			return GSON.fromJson(resp.getData(), clazz);
 		}
