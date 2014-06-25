@@ -11,6 +11,7 @@ import com.github.thiagolocatelli.paymill.exception.PreConditionFailedException;
 import com.github.thiagolocatelli.paymill.exception.ResourceNotFoundException;
 import com.github.thiagolocatelli.paymill.exception.TransactionErrorException;
 import com.github.thiagolocatelli.paymill.net.APIResource;
+import com.github.thiagolocatelli.paymill.net.VoidResponse;
 
 public class Subscription extends APIResource {
 
@@ -178,20 +179,20 @@ public class Subscription extends APIResource {
 				Subscription.class, apiKey);
 	}
 
-	public Subscription delete(String apiKey) throws AuthenticationException,
+	public void delete(String apiKey) throws AuthenticationException,
 			InvalidRequestException, APIConnectionException, APIException,
 			TransactionErrorException, PreConditionFailedException,
 			ResourceNotFoundException {
-		return request(RequestMethod.DELETE,
+		request(RequestMethod.DELETE,
 				instanceURL(Subscription.class, getId()), null,
-				Subscription.class, apiKey);
+				VoidResponse.class, apiKey);
 	}
 
-	public Subscription delete() throws AuthenticationException,
+	public void delete() throws AuthenticationException,
 			InvalidRequestException, APIConnectionException, APIException,
 			TransactionErrorException, PreConditionFailedException,
 			ResourceNotFoundException {
-		return delete(null);
+		delete(null);
 	}
 
 	public static SubscriptionCollection list() throws AuthenticationException,

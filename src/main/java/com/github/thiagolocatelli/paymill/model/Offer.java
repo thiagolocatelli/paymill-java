@@ -11,6 +11,7 @@ import com.github.thiagolocatelli.paymill.exception.PreConditionFailedException;
 import com.github.thiagolocatelli.paymill.exception.ResourceNotFoundException;
 import com.github.thiagolocatelli.paymill.exception.TransactionErrorException;
 import com.github.thiagolocatelli.paymill.net.APIResource;
+import com.github.thiagolocatelli.paymill.net.VoidResponse;
 
 public class Offer extends APIResource {
 
@@ -150,19 +151,19 @@ public class Offer extends APIResource {
 				params, Offer.class, apiKey);
 	}
 
-	public Offer delete(String apiKey) throws AuthenticationException,
+	public void delete(String apiKey) throws AuthenticationException,
 			InvalidRequestException, APIConnectionException, APIException,
 			TransactionErrorException, PreConditionFailedException,
 			ResourceNotFoundException {
-		return request(RequestMethod.DELETE, instanceURL(Offer.class, getId()),
-				null, Offer.class, apiKey);
+		request(RequestMethod.DELETE, instanceURL(Offer.class, getId()),
+				null, VoidResponse.class, apiKey);
 	}
 
-	public Offer delete() throws AuthenticationException,
+	public void delete() throws AuthenticationException,
 			InvalidRequestException, APIConnectionException, APIException,
 			TransactionErrorException, PreConditionFailedException,
 			ResourceNotFoundException {
-		return delete(null);
+		delete(null);
 	}
 
 	public static OfferCollection list() throws AuthenticationException,

@@ -32,7 +32,8 @@ public class Bridge extends APIResource {
 				url = bridge_live_api;
 				params.put("transaction.mode", "LIVE");
 			}
-			
+
+			params.put("channel.id", publishableKly);
 			token = request(RequestMethod.GET, url + "/",
 					params, TokenRequest.class, "-1");			
 			

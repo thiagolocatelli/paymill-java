@@ -11,6 +11,7 @@ import com.github.thiagolocatelli.paymill.exception.PreConditionFailedException;
 import com.github.thiagolocatelli.paymill.exception.ResourceNotFoundException;
 import com.github.thiagolocatelli.paymill.exception.TransactionErrorException;
 import com.github.thiagolocatelli.paymill.net.APIResource;
+import com.github.thiagolocatelli.paymill.net.VoidResponse;
 
 public class PreAuthorization extends APIResource {
 
@@ -135,19 +136,19 @@ public class PreAuthorization extends APIResource {
 				PreAuthorization.class, apiKey);
 	}
 
-	public PreAuthorization delete(String apiKey) throws AuthenticationException,
+	public void delete(String apiKey) throws AuthenticationException,
 			InvalidRequestException, APIConnectionException, APIException,
 			TransactionErrorException, PreConditionFailedException,
 			ResourceNotFoundException {
-		return request(RequestMethod.DELETE, instanceURL(PreAuthorization.class, getId()),
-				null, PreAuthorization.class, apiKey);
+		request(RequestMethod.DELETE, instanceURL(PreAuthorization.class, getId()),
+				null, VoidResponse.class, apiKey);
 	}
 
-	public PreAuthorization delete() throws AuthenticationException,
+	public void delete() throws AuthenticationException,
 			InvalidRequestException, APIConnectionException, APIException,
 			TransactionErrorException, PreConditionFailedException,
 			ResourceNotFoundException {
-		return delete(null);
+		delete(null);
 	}
 
 	public static PreAuthorizationCollection list() throws AuthenticationException,
