@@ -40,42 +40,42 @@ public class PaymentTest {
 	}	
 	
 	//@Test
-	public void testCreateCreditCardPayment() throws PaymillException {
+	public void CreateCreditCardPayment() throws PaymillException {
 		String token = Bridge.create(PublishableKey, cardParams);
 		Payment payment = Payment.createWithToken(token);
 		assertThat(payment.getId(), notNullValue());
 	}
 	
 	//@Test
-	public void testCreateCreditCardPaymentWithClient() throws PaymillException {
+	public void CreateCreditCardPaymentWithClient() throws PaymillException {
 		String token = Bridge.create(PublishableKey, cardParams);
 		Payment payment = Payment.createWithTokenAndClient(token, null);
 		assertThat(payment.getId(), notNullValue());
 	}
 	
 	//@Test
-	public void testCreateDebitPayment() throws PaymillException {
+	public void CreateDebitPayment() throws PaymillException {
 		String token = Bridge.create(PublishableKey, bankParams);
 		Payment payment = Payment.createWithToken(token);
 		assertThat(payment.getId(), notNullValue());
 	}
 	
 	//@Test
-	public void testCreateDebitPaymentWithClient() throws PaymillException {
+	public void CreateDebitPaymentWithClient() throws PaymillException {
 		String token = Bridge.create(PublishableKey, bankParams);
 		Payment payment = Payment.createWithTokenAndClient(token, null);
 		assertThat(payment.getId(), notNullValue());
 	}
 	
 	//@Test
-	public void testCreateIbanPayment() throws PaymillException {
+	public void CreateIbanPayment() throws PaymillException {
 		String token = Bridge.create(PublishableKey, ibanParams);
 		Payment payment = Payment.createWithToken(token);
 		assertThat(payment.getId(), notNullValue());
 	}
 	
 	//@Test
-	public void testCreateIbanPaymentWithClient() throws PaymillException {
+	public void CreateIbanPaymentWithClient() throws PaymillException {
 		String token = Bridge.create(PublishableKey, ibanParams);
 		Payment payment = Payment.createWithTokenAndClient(token, null);
 		assertThat(payment.getId(), notNullValue());
