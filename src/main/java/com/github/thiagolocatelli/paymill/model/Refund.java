@@ -15,7 +15,7 @@ import com.github.thiagolocatelli.paymill.net.APIResource;
 public class Refund extends APIResource {
 
 	String id;
-	String amout;
+	String amount;
 	String status;
 	String description;
 	Boolean livemode;
@@ -33,12 +33,12 @@ public class Refund extends APIResource {
 		this.id = id;
 	}
 
-	public String getAmout() {
-		return amout;
+	public String getAmount() {
+		return amount;
 	}
 
-	public void setAmout(String amout) {
-		this.amout = amout;
+	public void setAmount(String amount) {
+		this.amount = amount;
 	}
 
 	public String getStatus() {
