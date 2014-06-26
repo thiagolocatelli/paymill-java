@@ -16,8 +16,8 @@ import com.github.thiagolocatelli.paymill.net.APIResource;
 public class Transaction extends APIResource {
 
 	String id;
-	String amout;
-	Integer originAmout;
+	String amount;
+	Integer originAmount;
 	String status;
 	String description;
 	Boolean livemode;
@@ -43,20 +43,20 @@ public class Transaction extends APIResource {
 		this.id = id;
 	}
 
-	public String getAmout() {
-		return amout;
+	public String getAmount() {
+		return amount;
 	}
 
-	public void setAmout(String amout) {
-		this.amout = amout;
+	public void setAmount(String amount) {
+		this.amount = amount;
 	}
 
-	public Integer getOriginAmout() {
-		return originAmout;
+	public Integer getOriginAmount() {
+		return originAmount;
 	}
 
-	public void setOriginAmout(Integer originAmout) {
-		this.originAmout = originAmout;
+	public void setOriginAmount(Integer originAmount) {
+		this.originAmount = originAmount;
 	}
 
 	public String getStatus() {
