@@ -1,6 +1,6 @@
 package com.github.thiagolocatelli.paymill.model;
 
-public class Invoice {
+public class Invoice implements Webhookable {
 
 	String invoiceNr;
 	Integer netto;
