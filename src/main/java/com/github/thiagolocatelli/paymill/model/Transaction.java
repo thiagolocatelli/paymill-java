@@ -13,7 +13,7 @@ import com.github.thiagolocatelli.paymill.exception.ResourceNotFoundException;
 import com.github.thiagolocatelli.paymill.exception.TransactionErrorException;
 import com.github.thiagolocatelli.paymill.net.APIResource;
 
-public class Transaction extends APIResource {
+public class Transaction extends APIResource implements Webhookable {
 
 	String id;
 	String amount;
