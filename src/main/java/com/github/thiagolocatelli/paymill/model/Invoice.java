@@ -3,8 +3,8 @@ package com.github.thiagolocatelli.paymill.model;
 public class Invoice implements Webhookable {
 
 	String invoiceNr;
-	Integer netto;
-	Integer brutto;
+	Long netto;
+	Long brutto;
 	String status;
 	Integer periodFrom;
 	Integer periodUntil;
@@ -22,19 +22,19 @@ public class Invoice implements Webhookable {
 		this.invoiceNr = invoiceNr;
 	}
 
-	public Integer getNetto() {
+	public Long getNetto() {
 		return netto;
 	}
 
-	public void setNetto(Integer netto) {
+	public void setNetto(Long netto) {
 		this.netto = netto;
 	}
 
-	public Integer getBrutto() {
+	public Long getBrutto() {
 		return brutto;
 	}
 
-	public void setBrutto(Integer brutto) {
+	public void setBrutto(Long brutto) {
 		this.brutto = brutto;
 	}
 
