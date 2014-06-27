@@ -17,7 +17,7 @@ public class Transaction extends APIResource implements Webhookable {
 
 	String id;
 	String amount;
-	Integer originAmount;
+	Long originAmount;
 	String status;
 	String description;
 	Boolean livemode;
@@ -51,11 +51,11 @@ public class Transaction extends APIResource implements Webhookable {
 		this.amount = amount;
 	}
 
-	public Integer getOriginAmount() {
+	public Long getOriginAmount() {
 		return originAmount;
 	}
 
-	public void setOriginAmount(Integer originAmount) {
+	public void setOriginAmount(Long originAmount) {
 		this.originAmount = originAmount;
 	}
 
